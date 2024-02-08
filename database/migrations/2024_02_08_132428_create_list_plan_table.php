@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('faq_dynamic', function (Blueprint $table) {
+        Schema::create('list_plan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('faq_id')->constrained(); 
-            $table->string('title')->nullable();
-            $table->string('description', 255)->nullable();
-            
+            $table->foreignId('user_id')->constrained();
+            $table->unsignedBigInteger('plan_data_id');
+            $table->foreign('plan_data_id')->references('id')->on('plan_data')->onDelete('cascade');
+            $table->text('content_list')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('faq_dynamic');
+        Schema::dropIfExists('list_plan');
     }
 };

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('plan_data', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('plan_id')->nullable()->constrained();
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->string('title')->nullable();
             $table->decimal('monthly_price', 8, 2)->nullable();

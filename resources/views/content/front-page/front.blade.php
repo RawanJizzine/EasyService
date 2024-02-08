@@ -1055,7 +1055,7 @@
         <script>
             $(document).ready(function() {
 
-                    $('#plan5').on('click', function(e) {
+                    $('#plan1').on('click', function(e) {
                             e.preventDefault();
 
 
@@ -1077,7 +1077,7 @@
                     });
 
 
-                $('#plan4').on('click', function(e) {
+                $('#plan2').on('click', function(e) {
                         e.preventDefault();
 
 
@@ -1098,7 +1098,7 @@
                     @endauth
                 });
 
-            $('#plan6').on('click', function(e) {
+            $('#plan3').on('click', function(e) {
             e.preventDefault();
 
 

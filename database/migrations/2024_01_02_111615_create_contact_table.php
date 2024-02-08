@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('contact_data', function (Blueprint $table) {
             $table->id();
+
             $table->string('title_cta')->nullable();
             $table->text('description_cta')->nullable();
             $table->string('button_text_cta')->nullable();
             $table->string('image_cta')->nullable();
-
+         
             $table->string('title_contact')->nullable();
             $table->text('first_description_contact')->nullable();
             $table->text('second_description_contact')->nullable();
@@ -27,11 +28,9 @@ return new class extends Migration
             $table->text('description_contact')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('label1')->nullable();
-            $table->string('label2')->nullable();
-            $table->string('label3')->nullable();
+            $table->string('description_contact_two')->nullable();
             $table->string('text_button_contact')->nullable();
-
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

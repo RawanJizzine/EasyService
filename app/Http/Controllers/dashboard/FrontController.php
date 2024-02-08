@@ -37,21 +37,20 @@ class FrontController extends Controller
     public function index()
     {
         $userId = Auth::id();
-
-        $data['home'] = HomeData::where('user_id', 12)->first();
-        $data['feature'] = Feature::where('user_id', 12)->first();
-        $data['feature_data'] = FeaturesData::where('features_id', $data['feature']->id)->get();
-        $data['reviews'] = Review::where('user_id', 12)->first();
-        $data['review_data'] = ReviewsData::where('reviews_id', $data['reviews']->id)->get();
-        $data['logosdata'] = LogoData::where('user_id', 12)->get();
-        $data['team'] = TeamModel::where('user_id', 12)->first();
-        $data['team_data'] = TeamData::where('team_id', $data['team']->id)->get();
-        $data['fun_data'] = FunFact::where('user_id', 12)->get();
-        $data['faqs'] = Faq::where('user_id', 12)->first();
-        $data['faq'] = FaqModel::where('faq_id', $data['faqs']->id)->get();
-        $data['value'] = ContactData::where('user_id', 12)->first();
         $data['enter_auth'] = 'false';
-        $data['plan'] = Plan::where('user_id', 12)->first();
+        $data['home'] = HomeData::first();
+        $data['feature'] = Feature::first();
+        $data['feature_data'] = FeaturesData::where('features_id', $data['feature']->id)->get();
+        $data['reviews'] = Review::first();
+        $data['review_data'] = ReviewsData::where('reviews_id', $data['reviews']->id)->get();
+        $data['logosdata'] = LogoData::where('user_id', 1)->get();
+        $data['team'] = TeamModel::first();
+        $data['team_data'] = TeamData::where('team_id', $data['team']->id)->get();
+        $data['fun_data'] = FunFact::where('user_id', 1)->get();
+        $data['faqs'] = Faq::first();
+        $data['faq'] = FaqModel::where('faq_id', $data['faqs']->id)->get();
+        $data['value'] = ContactData::first();
+        $data['plan'] = Plan::first();
         $data['plan_pricing_data'] = PlanData::where('plan_id', $data['plan']->id ?? '')->with('planLists')->get();
         $data['subscription'] = SubscriptionPlan::where('user_id', $userId ?? "")->first();
 

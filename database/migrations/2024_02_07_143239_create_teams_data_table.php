@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('teams_data', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team_id')->constrained(); // This creates a foreign key relationship
+            $table->unsignedBigInteger('team_id');
+            $table->foreign('team_id')->references('id')->on('team')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->string('name')->nullable();
             $table->string('position')->nullable();
