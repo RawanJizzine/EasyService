@@ -112,7 +112,7 @@ class FrontController extends Controller
                 Mail::to($emailTo)->send(new YourMailContact($full_name, $email, $request->message, $emailTo));
             } else {
 
-                $contact = ContactData::where('user_id', 12)->first();
+                $contact = ContactData::where('user_id', 1)->first();
                 $emailTo = $contact->email;
                 Mail::to($emailTo)->send(new YourMailContact($full_name, $email, $request->message, $emailTo));
             }
@@ -122,7 +122,7 @@ class FrontController extends Controller
             $emailTo = $contact->email;
             Mail::to($emailTo)->send(new YourMailContact($full_name, $email, $request->message, $emailTo));
         }
-    return redirect()->back()->with('success', 'Message Sebd successfully!');
+        return redirect()->back()->with('success', 'Message Sebd successfully!');
     }
 
 
@@ -175,7 +175,7 @@ class FrontController extends Controller
     public function showPaymentPage()
     {
         $planSelect = session('plan_id');
-   $plan = Plan::first();
+        $plan = Plan::first();
         $planData = PlanData::where('plan_id', $plan->id ?? '')->with('planLists')->get();
         if ($planSelect == 'plan 1') {
             $data['plan_select'] = $planSelect;
