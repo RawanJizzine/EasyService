@@ -30,7 +30,7 @@ class YourMailClass extends Mailable
     
      
         return $this->view('content.dashboard.message.emails',compact('newmessage'))
-                    ->subject('New Letter From Admin')
+                    ->subject('New Letter')
                     ->to($this->recipients);
                   
 

@@ -35,7 +35,7 @@ class YourMailContact extends Mailable
     
      
         return $this->view('content.front-page.messageContactMessage',compact('newmessage', 'newname', 'newemail'))
-                    ->subject('New Letter From Admin')
+                    ->subject('New Message')
                     ->to($this->recipients);
                   
 
