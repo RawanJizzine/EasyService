@@ -31,6 +31,11 @@
                                     <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
                                         <img src="{{ asset('storage/' . $home->image_link_dashboard) ?? '' }}"
                                             alt="hero dashboard" class="animation-img" />
+                                        @if ($home->image_link_dashboard)
+                                        <img src="{{ asset('storage/' . $home->image_link_dashboard) }}" alt="hero dashboard" class="animation-img" />
+                                        @else
+                                        <img src="/uploads/images/home/dashboard.png " alt="Public Image">
+                                        @endif
                                         <img src="{{ asset('storage/' . $home->image_link_element) ?? '' }}"alt="hero elements"
                                             class="position-absolute hero-elements-img animation-img top-0 start-0" />
                                     </div>
