@@ -47,18 +47,26 @@ class AuthenticationController extends Controller
         }
         return redirect()->route('login')->with('error', 'Email or password is incorrect');
     }
+    public function toAdmin(Request $request)
+    {
+
+
+    }
     public function loginFront(Request $request)
     {
 
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('login-to-front');
+            $request->session()->put('reload', true);
+         return redirect()->route('login-to-front');
         } else {
 
             return redirect()->route('login')->with('error', 'Email or password is incorrect');
         }
     }
+    
+    
 
 
 

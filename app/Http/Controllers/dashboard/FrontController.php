@@ -53,11 +53,11 @@ class FrontController extends Controller
         $data['plan'] = Plan::first();
         $data['plan_pricing_data'] = PlanData::where('plan_id', $data['plan']->id ?? '')->with('planLists')->get();
         $data['subscription'] = SubscriptionPlan::where('user_id', $userId ?? "")->first();
-
+        $data['reload']='false';
 
         return view('content.front-page.front', $data);
     }
-    public function showFrontPage()
+    public function showFrontPage(Request $request)
     {
 
         $user_id = Auth::id();
@@ -77,6 +77,12 @@ class FrontController extends Controller
         $data['plan'] = Plan::where('user_id', $user_id ?? "")->first();
         $data['plan_pricing_data'] = PlanData::where('plan_id', $data['plan']->id ?? '')->with('planLists')->get();
         $data['subscription'] = SubscriptionPlan::where('user_id', $userId ?? "")->first();
+        if($request->session()->get('reload')){
+            $data['reload']='true';
+           
+        }else{
+            $data['reload']=='false';
+        }
         $user = User::find($user_id);
 
         if ($user) {
@@ -85,6 +91,7 @@ class FrontController extends Controller
             ]);
         }
         $data['enter_auth'] = 'true';
+       
         return view('content.front-page.front', $data);
     }
 

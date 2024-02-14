@@ -29,9 +29,10 @@
                                 <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
 
                                     <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-                                        <img src="{{ asset('storage/' . $home->image_link_dashboard) ?? '' }}" alt="Dashboard Image">
-                                       
-                                       
+                                        <img src="{{ asset('storage/' . $home->image_link_dashboard) ?? '' }}"
+                                            alt="Dashboard Image">
+
+
                                         <img src="{{ asset('storage/' . $home->image_link_element) ?? '' }}"alt="hero elements"
                                             class="position-absolute hero-elements-img animation-img top-0 start-0" />
                                     </div>
@@ -1047,6 +1048,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -1054,6 +1056,13 @@
 
 
         <script>
+            var reload = {{ $reload ? 'true' : 'false' }};
+            var reloaded = sessionStorage.getItem('reloaded');
+
+            if (reload && !reloaded) {
+                location.reload();
+                sessionStorage.setItem('reloaded', 'true');
+            }
             $(document).ready(function() {
 
                     $('#plan1').on('click', function(e) {
