@@ -267,6 +267,7 @@
                 data: $(this).serialize(),
                 success: function(response) {
                     alert('Data created successfully')
+                    location.reload();
                     console.log(response);
                 },
                 error: function(error) {

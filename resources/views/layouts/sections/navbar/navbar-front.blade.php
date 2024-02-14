@@ -153,11 +153,11 @@
         if (isAuthenticated)   {
 
             $.ajax({
-                url: 'admin-data',
+                url: '/admin',
                 method: 'GET',
                 success: function(response) {
 
-                    window.location.href = 'admin-data';
+                    window.location.href = '/admin';
                 },
                 error: function(xhr, status, error) {
                     console.error(error);

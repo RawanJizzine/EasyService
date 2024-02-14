@@ -47,11 +47,22 @@ class AuthenticationController extends Controller
         }
         return redirect()->route('login')->with('error', 'Email or password is incorrect');
     }
-    public function toAdmin(Request $request)
+    public function indexAdmin(Request $request)
     {
 
+  return view('auth.indexAdmin',);
+    } 
+    public function loginAdmin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
+        if (Auth::attempt($credentials) && Auth::user()->role === 'admin' ) {
+
+            return redirect()->route('admin-data');
+        }
+  
     }
+
     public function loginFront(Request $request)
     {
 
@@ -110,5 +121,12 @@ class AuthenticationController extends Controller
 
         auth()->logout();
         return redirect()->route('front-page');
+    }
+    public function logoutDashboard(Request $request)
+    {
+        $user_id = Auth::id();
+        $user =  User::where('id', $user_id)->first();
+         return redirect()->route('login-to-front');
+       
     }
 }

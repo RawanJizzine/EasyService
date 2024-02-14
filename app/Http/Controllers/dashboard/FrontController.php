@@ -97,6 +97,7 @@ class FrontController extends Controller
 
     public function adminDashboard()
     {
+       
         $user_id = Auth::id();
         $data['home'] = HomeData::where('user_id', $user_id ?? '')->first();
         return view('content.dashboard.homeData.homeDataPage', $data);
@@ -182,6 +183,7 @@ class FrontController extends Controller
     public function showPaymentPage()
     {
         $planSelect = session('plan_id');
+        dd($planSelect);
         $plan = Plan::first();
         $planData = PlanData::where('plan_id', $plan->id ?? '')->with('planLists')->get();
         if ($planSelect == 'plan 1') {

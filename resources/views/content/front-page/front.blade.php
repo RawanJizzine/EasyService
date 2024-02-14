@@ -29,7 +29,7 @@
                                 <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
 
                                     <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-                                        <img src="{{ asset('storage/' . $home->image_link_dashboard) ?? '' }}"
+                                        <img src="{{ asset('storage/home/1.png') ?? '' }}"
                                             alt="Dashboard Image">
 
 

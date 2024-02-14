@@ -24,12 +24,16 @@ use Illuminate\Routing\Route as RoutingRoute;
 
 Route::get('/', [FrontController::class, 'index'])->name('front-page');
 Route::get('/login', [AuthenticationController::class, 'index'])->name('login');
+Route::get('/super-admin', [AuthenticationController::class, 'indexAdmin'])->name('login-admin');
 Route::get('/login-index', [AuthenticationController::class, 'loginView'])->name('login-view');
 Route::get('/login-front', [AuthenticationController::class, 'loginFront'])->name('login-front');
 Route::get('/register', [AuthenticationController::class, 'showRegisterView'])->name('register');
 Route::post('/register-action', [AuthenticationController::class, 'register'])->name('register-action');
 Route::get('/login-success', [AuthenticationController::class, 'login'])->name('login-success');
+Route::get('/login-admin', [AuthenticationController::class, 'loginAdmin'])->name('loginAdmin');
+
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+Route::get('/logout-dashboard', [AuthenticationController::class, 'logoutDashboard'])->name('logout-dashboard');
 Route::post('/send-email', [FrontController::class, 'sendEmail'])->name('send.email');
 Route::post('/send-email-letter', [FrontController::class, 'saveEmailLetter'])->name('save.email');
 Route::post('/send-message-disscusion', [FrontController::class, 'sendMessageContact'])->name('send.message.contact');

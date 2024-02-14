@@ -122,7 +122,7 @@ class PricingPlanController extends Controller
     }
     public function insertListPlan(Request $request)
     {
-     
+   
         $user_id = auth()->id();
         foreach ($request->data as $key => $item) {
             $data = [
