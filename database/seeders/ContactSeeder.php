@@ -29,8 +29,8 @@ class ContactSeeder extends Seeder
             'text_button_contact' => 'Send inquiry',
         ];
 
-        $path_cta = 'uploads/images/contact/1.png';
-        $path_contact =  'uploads/images/contact/2.png';
+        $path_cta = 'assets/uploads/images/contact/1.png';
+        $path_contact =  'assets/uploads/images/contact/2.png';
 
         ContactData::create([
             'user_id'=>'1',

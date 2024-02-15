@@ -18,7 +18,7 @@ class FaqSeeder extends Seeder
             'first_description' =>'Frequently asked',
             'second_description' => 'questions',
             'tertiary_description' => 'Browse through these FAQs to find answers to commonly asked questions',
-            'image' => 'uploads/images/faqs/1.png',
+            'image' => 'assets/uploads/images/faqs/1.png',
             'user_id'=>'1'
         ]); 
     }

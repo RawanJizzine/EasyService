@@ -120,7 +120,7 @@
                         @foreach ($features_data ?? [] as $index => $data)
                             <tr>
                                
-                                <td><img src="{{ asset('storage/' . $data->image) }}" alt="Image"></td>
+                                <td><img   src="{{ explode('/', $data->image)[0] === 'uploads' ? asset('storage/' . $data->image)??'' : asset( $data->image) ??''}}"     alt="Image"></td>
                                 <td> <input type="text" value="{{ $data->title }}" name="title"
                                         class="form-control" readonly   ></td>
                                 <td>

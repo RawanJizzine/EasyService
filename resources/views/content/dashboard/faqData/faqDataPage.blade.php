@@ -52,7 +52,7 @@
                         
                         @if ($faqs->image ?? '')
                             <img class="uploaded-image" 
-                                src="{{ asset('storage/' . $faqs->image??'') }}"
+                            src="{{ explode('/', $faqs->image)[0] === 'uploads' ? asset('storage/' . $faqs->image)??'' : asset( $faqs->image) ??''}}"
                                 style="max-width: 100px; max-height: 100px;" id="previewImage" >
                         @else
                             <img class="uploaded-image" style="max-width: 100px; max-height: 100px;" id="previewImage">

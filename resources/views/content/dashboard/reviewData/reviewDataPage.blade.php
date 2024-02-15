@@ -121,7 +121,7 @@
                         @foreach ($reviews_data ?? [] as $index => $data)
                             <tr>
                                 
-                                <td><img src="{{ asset('storage/' . $data->image) }}" alt="Image"></td>
+                                <td><img  src="{{ explode('/', $data->image)[0] === 'uploads' ? asset('storage/' . $data->image)??'' : asset( $data->image) ??''}}" alt="Image"></td>
                                 <td>
                                     <textarea readonly name="description" class="form-control" cols="24" rows="8">{{ $data->description }}</textarea>
                                 </td>
@@ -129,7 +129,7 @@
                                         name="rating" class="form-control"></td>
 
 
-                                <td><img src="{{ asset('storage/' . $data->icon) }}" alt="Icon"></td>
+                                <td><img  src="{{ explode('/', $data->icon)[0] === 'uploads' ? asset('storage/' . $data->icon)??'' : asset( $data->icon) ??''}}" alt="Icon"></td>
                                 <td> <input  readonly type="text" value="{{ $data->name }}" name="name"
                                         class="form-control">
                                 </td>

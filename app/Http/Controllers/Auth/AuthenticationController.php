@@ -60,6 +60,7 @@ class AuthenticationController extends Controller
 
             return redirect()->route('admin-data');
         }
+        return redirect()->route('login')->with('error', 'Email or password is incorrect,must be admin');
   
     }
 

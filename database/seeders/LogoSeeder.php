@@ -15,19 +15,19 @@ class LogoSeeder extends Seeder
     {
         $logoData = [
             [
-                'image' => 'uploads/images/logo/1.png',
+                'image' => 'assets/uploads/images/logo/1.png',
             ],
             [
-                'image' => 'uploads/images/logo/2.png',
+                'image' => 'assets/uploads/images/logo/2.png',
             ],
             [
-                'image' => 'uploads/images/logo/3.png',
+                'image' => 'assets/uploads/images/logo/3.png',
             ],
             [
-                'image' => 'uploads/images/logo/4.png',
+                'image' => 'assets/uploads/images/logo/4.png',
             ],
             [
-                'image' => 'uploads/images/logo/5.png',
+                'image' => 'assets/uploads/images/logo/5.png',
             ],
         ];
 

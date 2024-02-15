@@ -60,7 +60,7 @@
                         @foreach ($logos_data ?? [] as $index => $data)
                             <tr>
 
-                                <td><img src="{{ asset('storage/' . $data->image) }}" alt="Image"></td>
+                                <td><img  src="{{ explode('/', $data->image)[0] === 'uploads' ? asset('storage/' . $data->image)??'' : asset( $data->image) ??''}}" alt="Image"></td>
                                 <td>
                                     <a href="#" class="btn btn-sm btn-primary edit-btn" data-toggle="modal"
                                         data-target="#editLogo" data-id="{{ $data->id }}"

@@ -18,8 +18,8 @@ class HomeSeeder extends Seeder
             'main_description' => 'Production-ready & easy to use Admin Template',
             'secondary_description' => 'for Reliability and Customizability',
             'button_text' => 'Get early access',
-            'image_link_dashboard' => 'app/public/uploads/images/home/dashboard.png',
-            'image_link_element' => 'uploads/images/home/element.png',
+            'image_link_dashboard' => 'assets/uploads/images/home/dashboard.png',
+            'image_link_element' => 'assets/uploads/images/home/element.png',
             'user_id'=>'1',
 
         ]);

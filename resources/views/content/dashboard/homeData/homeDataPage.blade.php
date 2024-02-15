@@ -45,7 +45,7 @@
                     <div class="form-group">
                         @if ($home->image_link_dashboard ?? '')
                             <img class="uploaded-image-dashboard" 
-                                src="{{ asset('storage/' . $home->image_link_dashboard) }}"
+                            src="{{ explode('/', $home->image_link_dashboard)[0] === 'uploads' ? asset('storage/' . $home->image_link_dashboard) : asset( $home->image_link_dashboard) }}"
                                 style="max-width: 100px; max-height: 100px;" id="previewImage" >
                         @else
                             <img class="uploaded-image-dashboard" style="max-width: 100px; max-height: 100px;" id="previewImage">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         @if ($home->image_link_element ?? '')
-                            <img class="uploaded-image-element" src="{{ asset('storage/' . $home->image_link_element) }}"
+                            <img class="uploaded-image-element" src="{{ explode('/', $home->image_link_element)[0] === 'uploads' ? asset('storage/' . $home->image_link_element) : asset( $home->image_link_element) }}"alt="hero elements"
                                 style="max-width: 100px; max-height: 100px;"   id="previewImageelement"   >
                         @else
                             <img class="uploaded-image-element" style="max-width: 100px; max-height: 100px;"  id="previewImageelement"    >

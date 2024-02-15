@@ -89,7 +89,7 @@
                         @foreach ($plan_data ?? [] as $index => $data)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td><img src="{{ asset('storage/' . $data->image) }}" alt="Image"></td>
+                                <td><img  src="{{ explode('/', $data->image)[0] === 'uploads' ? asset('storage/' . $data->image)??'' : asset( $data->image) ??''}}" alt="Image"></td>
 
                                 <td> <input readonly type="text" value="{{ $data->title }}" name="title" class="form-control">
                                 </td>
