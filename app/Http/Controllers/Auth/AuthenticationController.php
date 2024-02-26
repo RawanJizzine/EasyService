@@ -57,10 +57,15 @@ class AuthenticationController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials) && Auth::user()->role === 'admin' ) {
+            $user_id = Auth::id();
+            $user = User::find($user_id);
+            $user->update([
+                'super_admin_setting' => 'yes',
+            ]);
 
             return redirect()->route('admin-data');
         }
-        return redirect()->route('login')->with('error', 'Email or password is incorrect,must be admin');
+        return redirect()->route('login')->with('error', 'You are not the admin');
   
     }
 
@@ -71,6 +76,7 @@ class AuthenticationController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->put('reload', true);
+           
          return redirect()->route('login-to-front');
         } else {
 
@@ -128,6 +134,16 @@ class AuthenticationController extends Controller
         $user_id = Auth::id();
         $user =  User::where('id', $user_id)->first();
          return redirect()->route('login-to-front');
+       
+    }
+    public function logoutDashboardAdmin(Request $request)
+    {
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        $user->update([
+            'super_admin_setting' => 'no',
+        ]);
+         return redirect()->route('front-page');
        
     }
 }

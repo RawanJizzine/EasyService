@@ -34,6 +34,7 @@ Route::get('/login-admin', [AuthenticationController::class, 'loginAdmin'])->nam
 
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
 Route::get('/logout-dashboard', [AuthenticationController::class, 'logoutDashboard'])->name('logout-dashboard');
+Route::get('/logout-dashboard-admin', [AuthenticationController::class, 'logoutDashboardAdmin'])->name('logout-dashboard-admin');
 Route::post('/send-email', [FrontController::class, 'sendEmail'])->name('send.email');
 Route::post('/send-email-letter', [FrontController::class, 'saveEmailLetter'])->name('save.email');
 Route::post('/send-message-disscusion', [FrontController::class, 'sendMessageContact'])->name('send.message.contact');
